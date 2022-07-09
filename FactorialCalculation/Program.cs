@@ -8,14 +8,53 @@ namespace FactorialCalculation
         /*
              * 1. Step:  Start
              * 2. Step: Get number value from user
-             * 3. Step: If waterTemp is >=100, write on screen ("Water is in Gaseous State")
-             *          Otherwise, if waterTemp <=0, write to screen ("Water is in Solid")
-             *          Otherwise, write to screen ("Water is in Liquid")
-             * 4. Step: End
+             * 3. Step: factorial =1, counter= 1
+             * 4. Step: If number == 0, factorial = 1. Go to step 7.
+             * 5. Step: If counter < number , counter = counter + 1
+             *          Otherwise, Go to step 7.
+             * 6. Step: factorial = factorial * counter. Go to step 5.
+             * 7. Step:  Write to the screen ("Number Entered: ", number , "Factorial of Number: ", factorial)
+             * 8. Step: End
              */
+
+        //Redirection is for 'if' only. Not for 'Else' or 'Else if'.
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Please enter the number value for which you want to calculate the factorial:");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int factorial = 1, counter = 1;
+
+        control: if (number == 0)
+            {
+                factorial = 1;
+                goto writeScreen;
+            }
+            else if (number < 0)
+            {
+                goto negativeNumber;
+            }
+            else if (number > counter)
+            {
+                //counter = counter +1;
+                counter++;
+                //step 6
+                factorial = factorial * counter;
+                goto control;
+            }
+            else
+            {
+                goto writeScreen;
+            }
+
+            
+
+            writeScreen: Console.WriteLine("Number Entered: " + number + " Factorial of Number: " + factorial);
+                goto end;
+            negativeNumber: Console.WriteLine("A negative number was entered. The factorial calculation of negative numbers is not done.");
+
+
+            end: Console.ReadLine();
         }
     }
 }
