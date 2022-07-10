@@ -44,13 +44,13 @@ namespace FactorialCalculation
             }
             else
             {
-                goto writeScreen;
+                goto writeScreen; 
             }
 
             
 
-            writeScreen: Console.WriteLine("Number Entered: " + number + " Factorial of Number: " + factorial);
-                goto end;
+          writeScreen: Console.WriteLine("Number Entered: " + number + " Factorial of Number: " + factorial); //  step 7
+            goto end;
             negativeNumber: Console.WriteLine("A negative number was entered. The factorial calculation of negative numbers is not done.");
 
 
